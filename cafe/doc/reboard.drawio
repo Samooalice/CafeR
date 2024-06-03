@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net" modified="2024-05-31T08:06:32.523Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="wIDyg5-JVzByIaHF0I0R" version="24.4.2" type="device">
+  <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
+    <mxGraphModel dx="1712" dy="603" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Gu5KVqmmJM8jsOhbs-T8-1" value="댓글게시판" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="90" y="140" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Gu5KVqmmJM8jsOhbs-T8-2" value="회원" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="520" y="60" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Gu5KVqmmJM8jsOhbs-T8-3" value="작성자" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="-40" y="180" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Gu5KVqmmJM8jsOhbs-T8-4" value="글내용" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="90" y="220" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Gu5KVqmmJM8jsOhbs-T8-5" value="작성일" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="220" y="180" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Gu5KVqmmJM8jsOhbs-T8-6" value="조회수" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="220" y="90" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Gu5KVqmmJM8jsOhbs-T8-7" value="좋아요" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="90" y="50" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Gu5KVqmmJM8jsOhbs-T8-8" value="노출여부" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="-40" y="90" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Gu5KVqmmJM8jsOhbs-T8-9" value="상위글번호" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="350" y="140" width="100" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
