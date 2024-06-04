@@ -84,11 +84,11 @@
         		$("#tel").focus();
         		return;
         	}
-        	var sgen = document.frm.gen.val();
+        	var sgen = document.frm.gen.value;
         	if(!sgen){
         		return;
         	}
-        	var sano = document.frm.ano.val();
+        	var sano = document.frm.ano.value;
         	if(!sano){
         		return;
         	}
