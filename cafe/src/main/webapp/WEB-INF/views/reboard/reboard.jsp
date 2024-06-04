@@ -11,7 +11,9 @@
 
 <script type="text/javascript" src="/cafe/js/jquery-3.7.1.min.js"></script>
 <style type="text/css">
-
+	.goods{
+		cursor: pointer;
+	}
 </style>
 <script type="text/javascript">
 	$(function(){
@@ -45,12 +47,47 @@
 			$('#frm').attr('action', path);
 			$('#frm').submit();
 		});
+		
+		/* 페이징 처리 */
+		$('.pageBtn').click(function(){
+			var spno = $(this).attr('id');
+			$('#nowPage').val(spno);
+			$('#frm').attr('action', '/cafe/reboard/reboard.cafe');
+			
+			$('#frm').submit();
+		});
+		
+		/* 글 삭제 이벤트 */
+		$('.delete').click(function(){
+			var sbno = $(this).attr('id').substring(1);
+			$('#frm').append('<input type="hidden" name="bno" value="' + sbno + '">');
+			$('#frm').attr('action', '/cafe/reboard/delReboard.cafe');
+			$('#frm').submit();
+		});
+		
+		/* 댓글 쓰기 */
+		$('.append').click(function(){
+			var sbno = $(this).attr('id').substring(1);
+			$('#frm').append('<input type="hidden" name="bno" value="' + sbno + '">');
+			$('#frm').attr('action', '/cafe/reboard/reboardRewrite.cafe');
+			$('#frm').submit();
+		});
+		
+		/* 좋아요 클릭이벤트 */
+		$('i.goods').click(function(){
+			var sbno = $(this).attr('id').substring(1);
+			$('#frm').append('<input type="hidden" name="bno" value="'+ sbno +'">');
+			
+			$('#frm').attr('action', '/cafe/reboard/addGood.cafe');
+			$('#frm').submit();
+		});
 	});
 </script>
 </head>
 <body>
 	<form method="POST" id="frm" name="frm">
-		<input type="hidden" name="nowPage" value="${PAGE.nowPage}">
+		<input type="hidden" name="nowPage" id ="nowPage"value="${PAGE.nowPage}">
+		<input type="hidden" name="id" id ="id" value="${SID}">
 	</form>
 	<div class="w3-content mxw700">
 		<h1 class="w3-blue w3-padding w3-card-4 w3-center">댓글 게시판</h1>
@@ -75,21 +112,27 @@
 				<div class="w3-col w3-card-4">
 					<div class="w3-col" style="width: 100px;">
 						<div class="w3-col imgBox2 pd10">
-							<img src="/cafe/avatar/img_avatar22.png" class="w3-col w3-circle img80">
+							<img src="/cafe/avatar/${DATA.savename}" class="w3-col w3-circle img80">
 						</div>
 						<h6 class="w3-col w3-center mgh0">${DATA.id}</h6>
 					</div>
-					<div class="w3-rest pd10">
+					<div class="w3-rest pd10 pdh20">
 						<div class="w3-col w3-border-bottom" style="padding-bottom: 3px;">
 							<p class="w3-left mgh0" style="font-size: 9pt;">작성일 : ${DATA.sdate}</p>
-							<p class="w3-right mgh0" style="font-size: 9pt;"><i class="fa fa-heart"></i> 좋아요 : ${DATA.goods}</p>
+							<p class="w3-right mgh0" style="font-size: 9pt;"><i id="g${DATA.bno}" class="fa fa-heart w3-text-pink goods"></i>
+										<span>좋아요 : </span>
+										<span>${DATA.goods}</span></p>
 						</div>
 						<div class="w3-col w3-padding">
 							<pre class="contentBox" style="margin: 0px;">${DATA.body}</pre>
 						</div>
 						<div class="w3-col">
-							<div class="w3-btn w3-tiny w3-orange w3-left" id="d${DATA.bno}">글삭제</div>
-							<div class="w3-btn w3-tiny w3-pink w3-right" id="r${DATA.bno}">댓글쓰기</div>
+	<c:if test="${SID eq DATA.id}">
+							<div class="w3-btn w3-tiny w3-orange w3-left delete" id="d${DATA.bno}">글삭제</div>
+	</c:if>
+	<c:if test="${not empty SID and DATA.level lt 3 }">
+							<div class="w3-btn w3-tiny w3-pink w3-right append" id="r${DATA.bno}">댓글쓰기</div>
+	</c:if>
 						</div>
 					</div>
 				</div>

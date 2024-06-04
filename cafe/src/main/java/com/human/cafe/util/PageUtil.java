@@ -43,6 +43,7 @@ public class PageUtil {
 		this.totalCount = totalCount;
 		this.pageRow = pageRow;
 		this.pageGroup = pageGroup;
+		
 		calcTotalPage();
 		calcPage();
 		calcRno();
@@ -53,6 +54,9 @@ public class PageUtil {
 			totalPage = 1;
 		} else {			
 			totalPage = (totalCount % pageRow == 0) ? (totalCount / pageRow) : (totalCount / pageRow + 1);
+		}
+		if(nowPage > totalPage) {
+			nowPage = totalPage;
 		}
 	}
 	
@@ -77,12 +81,17 @@ public class PageUtil {
 		this.nowPage = nowPage;
 	}
 
+	public void setNowPage() {
+		nowPage = nowPage == 0 ? 1 : nowPage;
+	}
+
 	public int getTotalCount() {
 		return totalCount;
 	}
 
 	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
+		setNowPage();
 	}
 
 	public int getPageRow() {

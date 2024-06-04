@@ -32,7 +32,7 @@ import com.sun.org.apache.bcel.internal.generic.I2F;
 @RequestMapping("/member")
 public class Member {
 	@Autowired
-	MemberDao mDAO;
+	MemberDao mDao;
 	
 	/**
 	 * 로그아웃 처리 함수
@@ -59,7 +59,7 @@ public class Member {
 	 */
 	@RequestMapping("/loginProc.cafe")
 	public ModelAndView loginProc(HttpSession session, ModelAndView mv, MemberVO mVO, RedirectView rv) {
-		int cnt = mDAO.getLogin(mVO);
+		int cnt = mDao.getLogin(mVO);
 		
 		if(cnt == 0) {
 			rv.setUrl("/cafe/member/login.cafe");
@@ -91,7 +91,7 @@ public class Member {
 		System.out.println("################################## in");
 		HashMap<String, String> map = new HashMap<String, String>();
 		
-		int cnt = mDAO.idCheck(id);
+		int cnt = mDao.idCheck(id);
 		if(cnt == 0) {
 			map.put("result", "OK");
 		}else {
@@ -103,7 +103,7 @@ public class Member {
 	
 	@RequestMapping("/joinProc.cafe")
 	public ModelAndView joinProc(HttpSession session, ModelAndView mv, RedirectView rv, MemberVO mVO) {
-		int cnt = mDAO.addMember(mVO);
+		int cnt = mDao.addMember(mVO);
 		if(cnt != 1) {
 			// 회원가입 실패
 			rv.setUrl("/cafe/member/join.cafe");
